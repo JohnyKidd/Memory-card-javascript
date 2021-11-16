@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #EE6352;
+}
+.card{
+    display: block;
+    margin: 1rem;
+    border: 5px solid #EAF2EF;
+    border-radius: 15px;
+}
+.cardHover{
+    display: block;
+    margin: 1rem;
+    border: 5px solid #EAF2EF;
+    border-radius: 15px;
+    transform: scale(1.05);
+    transition: 1ms;
+}
+.cardClick{
+    display: block;
+    margin: 1rem;
+    border: 5px solid #EAF2EF;
+    border-radius: 15px;
+    transform: rotate(360deg);
+    transition: 1s;
+}
+.cardFlex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.cardGrid{
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+    grid-template-rows: repeat(3,33%);
+}
