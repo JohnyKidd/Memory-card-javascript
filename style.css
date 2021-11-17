@@ -8,20 +8,16 @@ body{
 }
 .card{
     display: block;
+    width: 100px;
+    height: 150px;
     margin: 1rem;
     border: 5px solid #EAF2EF;
     border-radius: 15px;
-}
-.cardHover{
-    display: block;
-    margin: 1rem;
-    border: 5px solid #EAF2EF;
-    border-radius: 15px;
-    transform: scale(1.05);
-    transition: 1ms;
 }
 .cardClick{
     display: block;
+    width: 100px;
+    height: 150px;
     margin: 1rem;
     border: 5px solid #EAF2EF;
     border-radius: 15px;
