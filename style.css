@@ -13,6 +13,7 @@ body{
     margin: 1rem;
     border: 5px solid #EAF2EF;
     border-radius: 15px;
+    background: url("assets/cardBack.png");
 }
 .cardClick{
     display: block;
