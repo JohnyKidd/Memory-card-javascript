@@ -4,6 +4,7 @@ card1ID = ""
 card2ID = ""
 selectedCard2 = ""
 haveSelected = false
+pairNumber = 6
 
 // shuffle function for arrays
 function shuffle(array) {
@@ -41,36 +42,54 @@ const deck = document.querySelectorAll('.card')
 //color palette
 const colors = ["red", "blue", "green", "purple", "black", "yellow","red", "blue", "green", "purple", "black", "yellow"]
 shuffle(colors)
-pairNumber = colors.length
 
 //iterate the cards for game logic and animation
 for (let i = 0; i < deck.length; i++){
     deck[i].addEventListener("click", ()=>{
         deck[i].className = "cardClick"
         deck[i].id = i
-        console.log(deck[i].id)
         deck[i].style.background = colors[i]
         deck[i].name = colors[i]
 
+        // selecting the cards
         if (!haveSelected){
             haveSelected = true
             selectedCard1 = deck[i].name
             card1ID = deck[i].id
-            console.log(selectedCard1)
         }
         else{
             haveSelected = false
             selectedCard2 = deck[i].name
             card2ID = deck[i].id
-            console.log(selectedCard2)
             
+            // matching
             if (selectedCard1 === selectedCard2){
                 deck[card1ID].style.background = "white"
                 deck[card1ID].style.pointerEvents = "none"
                 deck[card2ID].style.background = "white"
                 deck[card2ID].style.pointerEvents = "none"
                 pairNumber-=1
-                if (pairNumber<=0){console.log("winner")}
+
+                // win condition
+                if (pairNumber<=0){
+                    playArea.innerHTML = ""
+                    playArea.className = "gameWon"
+                    const winDiv = document.createElement("div")
+                    playArea.appendChild(winDiv)
+                    const winText = document.createElement("h1")
+                    winText.innerHTML = "You have won this round!"
+                    winText.style.color = "white"
+                    winDiv.appendChild(winText)
+                    const restartButton = document.createElement("button")
+                    restartButton.innerHTML = "new round"
+                    restartButton.className = "restartButton"
+                    winDiv.appendChild(restartButton)
+
+                    restartButton.addEventListener("click", ()=>{
+                        window.location.reload()
+                    })
+                }
+
             }
             else{
                 setTimeout(() => {
